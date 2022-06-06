@@ -5,7 +5,7 @@ const PORT = 8000
 
 app.use(cors())
 
-let rappers = {
+let quotes = {
     '21 savage': {
         'age': 28,
         'birthName': 'Shéyaa Bin Abraham-Joseph',
@@ -50,7 +50,7 @@ app.get('/', (request, response) => {
 
 app.get('/api/:name', (request, response) => {
     const rapperName = request.params.name.toLowerCase()
-    if(rappers[rapperName]){
+    if(quotes[rapperName]){
         response.json(rappers[rapperName])
     }else{
         response.json(rappers['unknown'])
