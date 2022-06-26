@@ -5,42 +5,26 @@ const PORT = 8000
 
 app.use(cors())
 
-let quotes = {
-    '21 savage': {
-        'age': 28,
-        'birthName': 'Shéyaa Bin Abraham-Joseph',
-        'birthdate': '22 October 1992', 
-        'birthLocation': 'London, England',
-        'origin': 'Atlanta, Georgia',
-        'genre': 'hip hop, trap, rap, horrorcore',
-        'occupation': 'rapper, songwriter, record producer',
-        'yearsActive': '2013-present',
-        'labels': 'Epic, Slaughter Gang',
-        'children': 3
+let characters = {
+    'The Dude': {
+        'nickName': 'Jeffery Lebowski',
+        'quote': 'The dude abides man!', 
+        'quote2': 'Well, that\'s like your opinion man!',
     },
-    'chance the rapper':{
-        'age': 28,
-        'birthName': 'Chancelor Jonathan Bennett',
-        'birthdate': 'April 16, 1993', 
-        'birthLocation': 'London, England',
-        'origin': 'Chicago, Illinois',
-        'genre': 'hip hop, alternative hip hop, r & b',
-        'occupation': 'rapper, singer, song writer, record producer, activist, actor, philanthropist',
-        'yearsActive': '2011-present',
-        'labels': 'none',
-        'children': 0
+    'Walter':{
+        'nickName': 'Walt Sobchak',
+        'quote': 'Donny you\'re out of your element!', 
+        'quote2': 'Dude. Come on, you\'re being very un-Dude.',
+    },
+    'Donnie':{
+        'fullName': 'Theodore Donald Kerrabatsos ',
+        'quote': 'What was that Dude?', 
+        'quote2': 'Who\'s in pajamas Walter?',
     },
     'unknown':{
-        'age': 'unknown',
-        'birthName': 'unknown',
-        'birthdate': 'unknown', 
-        'birthLocation': 'unknown',
-        'origin': 'unknown',
-        'genre': 'unknown',
-        'occupation': 'unknown',
-        'yearsActive': 'unknown',
-        'labels': 'unknown',
-        'children': 'unknown'
+        'fullName': 'unknown',
+        'quote': 'unknown',
+        'quote2': 'unknown',
     }
 }
 
@@ -49,11 +33,11 @@ app.get('/', (request, response) => {
 })
 
 app.get('/api/:name', (request, response) => {
-    const rapperName = request.params.name.toLowerCase()
-    if(quotes[rapperName]){
-        response.json(rappers[rapperName])
+    const characterName = request.params.name.toLowerCase()
+    if(characters[characterName]){
+        response.json(characters[characterName])
     }else{
-        response.json(rappers['unknown'])
+        response.json(characters['unknown'])
     }
 })
 
